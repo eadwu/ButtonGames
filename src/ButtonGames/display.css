@@ -1,0 +1,26 @@
+.root {
+    -fx-background-color: #000;
+}
+
+.label {
+    -fx-font-size: 20;
+}
+
+Button {
+    -fx-background-radius: 5em;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+    -fx-max-width: 50px;
+    -fx-max-height: 50px;
+    /*
+    Dark ff3d00
+    Light ff8a65
+    */
+    -fx-background-color: #ff3d00;
+    -fx-background-insets: 0px;
+    -fx-padding: 0px;
+}
+
+Button:pressed {
+    -fx-background-color: #ff9100;
+}
