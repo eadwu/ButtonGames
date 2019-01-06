@@ -1,17 +1,19 @@
 .root {
-    -fx-background-color: #000;
+    -fx-background-color: #000a12;
 }
 
-.label {
+Label {
     -fx-font-size: 20;
+    -fx-font-color: #ffffff;
 }
 
 Button {
     -fx-min-width: 50px;
     -fx-min-height: 50px;
-    -fx-background-color: #ff3d00;
+    -fx-background-color: #263238;
     -fx-background-insets: 0px;
     -fx-padding: 5px;
+    -fx-text-fill: #ffffff;
 }
 
 Button.fake_lights {
@@ -21,5 +23,6 @@ Button.fake_lights {
 }
 
 Button:pressed {
-    -fx-background-color: #ff9100;
+    -fx-background-color: #90a4ae;
+    -fx-text-fill: #000000;
 }

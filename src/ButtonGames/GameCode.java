@@ -9,26 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GameCode extends Application {
-    private int score = 0;
-    private int button_count = Constants.BASE_BUTTON_COUNT;
-
-    private Button[] buttons;
-
-    private List<Integer> inputPattern = new ArrayList();
-    private List<Integer> realPattern = new ArrayList();
-
-    public void generatePattern() {
-        this.realPattern.clear();
-
-        for (int i = 0; i < button_count; i++)
-            this.realPattern.add((int) (Math.random() * Constants.BASE_BUTTON_COUNT));
-        this.button_count++;
-    }
-
     @Override
     public void start(Stage primaryStage) {
         VBox root = new VBox();
@@ -44,7 +25,12 @@ public class GameCode extends Application {
 
             button.setDisable(true);
             button.getStyleClass().add("fake_lights");
+            button.getProperties().put("data-button-id", i);
             buttonContainer.getChildren().add(button);
+
+            button.setOnAction(e -> {
+                Game.registerClick(button);
+            });
         }
 
         HBox controlContainer = new HBox();
@@ -59,11 +45,12 @@ public class GameCode extends Application {
         initGame.setOnAction(e -> {
             initGame.setDisable(true);
             userTextField.setEditable(false);
-            buttonContainer.getChildren().forEach(button -> button.setDisable(false));
 
             if (userTextField.getText().equals("")) {
                 userTextField.setText("null");
             }
+
+            Game.init(userTextField.getText(), buttonContainer, root);
         });
 
         controlContainer.getChildren().addAll(initGame, userTextField);
