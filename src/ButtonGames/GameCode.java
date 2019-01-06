@@ -56,7 +56,7 @@ public class GameCode extends Application {
         controlContainer.getChildren().addAll(initGame, userTextField);
         root.getChildren().addAll(buttonContainer, controlContainer);
 
-        Scene scene = new Scene(root, 300, 275);
+        Scene scene = new Scene(root, 500, 500);
         scene.getStylesheets().add(this.getClass().getResource("display.css").toExternalForm());
         primaryStage.setTitle("Simon Says");
         primaryStage.setScene(scene);
