@@ -9,10 +9,6 @@
 Button {
     -fx-min-width: 50px;
     -fx-min-height: 50px;
-    /*
-    Dark ff3d00
-    Light ff8a65
-    */
     -fx-background-color: #ff3d00;
     -fx-background-insets: 0px;
     -fx-padding: 5px;
