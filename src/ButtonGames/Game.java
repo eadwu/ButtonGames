@@ -138,15 +138,17 @@ public class Game {
                 .collect(Collectors.toList());
 
         IntStream.range(0, Constants.MAX_SCORE_LISTING).forEach(i -> {
-            List<String> user = scores.get(i);
+            if (i < scores.size()) {
+                List<String> user = scores.get(i);
 
-            Label usernameLabel = new Label();
-            usernameLabel.setText(user.get(0));
+                Label usernameLabel = new Label();
+                usernameLabel.setText(user.get(0));
 
-            Label scoreLabel = new Label();
-            scoreLabel.setText(user.get(1));
+                Label scoreLabel = new Label();
+                scoreLabel.setText(user.get(1));
 
-            highScores.addRow(i + 1, usernameLabel, scoreLabel);
+                highScores.addRow(i + 1, usernameLabel, scoreLabel);
+            }
         });
         Game.root.getChildren().add(highScores);
     }
